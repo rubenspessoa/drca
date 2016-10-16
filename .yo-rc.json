@@ -1,0 +1,56 @@
+{
+  "generator-karma": {
+    "base-path": "../",
+    "frameworks": "jasmine",
+    "browsers": "PhantomJS",
+    "app-files": "app/scripts/**/*.js",
+    "files-comments": "bower:js,endbower",
+    "bower-components-path": "bower_components",
+    "test-files": "test/mock/**/*.js,test/spec/**/*.js"
+  },
+  "generator-jhipster": {
+    "jhipsterVersion": "3.9.1",
+    "baseName": "enrollmentSystem",
+    "packageName": "com.mycompany.myapp",
+    "packageFolder": "com/mycompany/myapp",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "rememberMeKey": "7cf84b7113b1e156b179a1f9c23640362cc43924",
+    "useSass": false,
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false
+  },
+  "generator-fountain-angular2": {
+    "version": "1.0.0-rc1",
+    "props": {
+      "framework": "angular2",
+      "modules": "webpack",
+      "js": "babel",
+      "ci": [
+        "travis"
+      ],
+      "css": "scss",
+      "resolved": "/usr/local/lib/node_modules/generator-fountain-webapp/node_modules/generator-fountain-angular2/generators/app/index.js",
+      "namespace": "fountain-angular2",
+      "argv": {
+        "remain": [],
+        "cooked": [],
+        "original": []
+      },
+      "sample": "techs",
+      "router": "router"
+    }
+  }
+}
