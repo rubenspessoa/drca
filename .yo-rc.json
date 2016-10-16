@@ -38,9 +38,7 @@
       "framework": "angular2",
       "modules": "webpack",
       "js": "typescript",
-      "ci": [
-        "travis"
-      ],
+      "ci": [],
       "css": "css",
       "resolved": "/usr/local/lib/node_modules/generator-fountain-webapp/node_modules/generator-fountain-angular2/generators/app/index.js",
       "namespace": "fountain-angular2",
@@ -49,7 +47,7 @@
         "cooked": [],
         "original": []
       },
-      "sample": "todoMVC",
+      "sample": "hello",
       "router": "router"
     }
   }

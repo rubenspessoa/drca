@@ -2,7 +2,7 @@
 
 import {Component} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AppComponent} from './containers/App';
+import {HelloComponent} from './hello';
 
 @Component({
   selector: 'fountain-root',
@@ -13,7 +13,7 @@ export class RootComponent {}
 export const routes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: HelloComponent
   }
 ];
 

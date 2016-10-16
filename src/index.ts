@@ -6,7 +6,6 @@ import 'zone.js/dist/zone';
 import '@angular/common';
 import 'rxjs';
 
-import 'todomvc-app-css/index.css';
 import './index.css';
 
 import {enableProdMode} from '@angular/core';
