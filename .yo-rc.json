@@ -37,11 +37,11 @@
     "props": {
       "framework": "angular2",
       "modules": "webpack",
-      "js": "babel",
+      "js": "typescript",
       "ci": [
         "travis"
       ],
-      "css": "scss",
+      "css": "css",
       "resolved": "/usr/local/lib/node_modules/generator-fountain-webapp/node_modules/generator-fountain-angular2/generators/app/index.js",
       "namespace": "fountain-angular2",
       "argv": {
@@ -49,7 +49,7 @@
         "cooked": [],
         "original": []
       },
-      "sample": "techs",
+      "sample": "todoMVC",
       "router": "router"
     }
   }
