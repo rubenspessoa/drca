@@ -1,54 +1,7 @@
 import {Component} from '@angular/core';
-import {Department} from './department';
 import { Router } from '@angular/router';
-
-const DEPARTMENTS : Department[] = [
-  {
-    id: 1,
-    name: 'Instituto de Computação',
-    secretariats: [
-      {
-        id: 10,
-        name:'Graduação'
-      },
-      {
-        id: 11,
-        name:'Pós-graduação'
-      }
-    ]},
-  {id: 2, name: 'Instituto de Matemática', secretariats: [
-    {
-      id: 12,
-      name:'Graduação'
-    }
-  ]},
-  {id: 3, name: 'Instituto de Física', secretariats: [
-    {
-      id: 13,
-      name:'Graduação'
-    },
-    {
-      id: 14,
-      name:'Pós-graduação'
-    }
-  ]},
-  {id: 4, name: 'Centro de Educação', secretariats: [
-    {
-      id: 15,
-      name:'Graduação'
-    },
-    {
-      id: 16,
-      name:'Pós-graduação'
-    }
-  ]},
-  {id: 5, name: 'Centro de Saúde', secretariats: [
-    {
-      id: 17,
-      name:'Graduação'
-    }
-  ]}
-];
+import {Department} from './department';
+import {DEPARTMENTS} from './mock-departments';
 
 @Component({
   selector: 'fountain-departments',
@@ -60,7 +13,8 @@ export class DepartmentsComponent {
   selectedDepartment: Department;
   departments = DEPARTMENTS;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router) {
     this.text = 'Departamentos';
   }
 
@@ -69,6 +23,6 @@ export class DepartmentsComponent {
   }
 
   gotoSecretariat(departmentId: number, secretariatId: number): void {
-    this.router.navigate(['/:departmentId/:secretariatId', {departmentId: departmentId, secretariatId: secretariatId}]);
+    this.router.navigate(['/:id1/:id2', {id1: departmentId, id2: secretariatId}]);
   }
 }
