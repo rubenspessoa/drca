@@ -1,21 +1,21 @@
-/// <reference path="../../typings/index.d.ts"/>
-
-import {Component} from '@angular/core';
+import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DrcaComponent} from './drca';
 
-@Component({
-  selector: 'fountain-root',
-  template: '<router-outlet></router-outlet>'
-})
+import { DrcaComponent } from './drca.component';
+import { EnrollmentComponent } from './enrollment.component';
+import { DepartmentsComponent } from './departments.component';
+import { SecretariatComponent } from './secretariat.component';
 
-export class RootComponent {}
-
-export const routes: Routes = [
-  {
-    path: '',
-    component: DrcaComponent
-  }
+const routes: Routes = [
+  { path: '', redirectTo: '/enrollment', pathMatch: 'full' },
+  { path: 'enrollment', component: EnrollmentComponent },
+  { path: 'departments', component: DepartmentsComponent },
+  { path: ':departmentId/:secretariatId', component: SecretariatComponent}
 ];
 
-export const routing = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
+})
+
+export class AppRoutingModule {}

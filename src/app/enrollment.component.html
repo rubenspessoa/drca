@@ -1,0 +1,16 @@
+<main>
+  <div class="main container">
+    <h2 class="text-center">{{text}}</h2>
+    <br>
+    <ul class="list-unstyled">
+      <li *ngFor="let student of students" (click)="onSelect(student)" [class.selected]="hero === selectedHero">
+        <h4>
+          <div class="text-center">
+            <a>{{student.name}}</a>
+          </div>
+        </h4>
+      </li>
+    </ul>
+    <hr>
+  </div>
+</main>

@@ -1,9 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'fountain-app',
-  styles: [],
-  template: require('./drca.html')
+  template: require('./drca.component.html')
 })
 
 export class DrcaComponent {

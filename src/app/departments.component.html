@@ -1,0 +1,31 @@
+<main>
+  <div class="main container">
+    <h2 class="text-center">{{text}}</h2>
+    <br>
+    <div class="row btn-group-lg">
+      <div *ngFor="let department of departments" (click)="onSelect(department)" class="btn col-md-4" [class.selected]="department === selectedDepartment">
+        <h4>
+          <a (click)=showSecretariats()>{{department.name}}</a>
+        </h4>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div *ngIf="selectedDepartment" class="main container">
+    <h2 class="text-center">
+      {{selectedDepartment.name}}
+      <br>
+      <small>(Secretarias)</small>
+    </h2>
+
+    <br>
+    <div class="row btn-group-lg">
+      <div *ngFor="let secretariat of selectedDepartment.secretariats" class="btn col-md-6">
+        <h4>
+          <a (click)="gotoSecretariat(selectedDepartment.id, secretariat.id)">{{secretariat.name}}</a>
+        </h4>
+      </div>
+    </div>
+  </div>
+</main>

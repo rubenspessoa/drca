@@ -1,0 +1,23 @@
+<div class="container">
+  <div id="logo-container">
+    <h1 class="text-center">
+        <strong>{{ title }}</strong>
+        <br><small>{{ subtitle }}</small>
+    </h1>
+    <hr>
+     <div class="row">
+      <nav>
+         <ul class="nav nav-pills nav-justified">
+           <li role="presentation">
+             <a routerLink="/enrollment" routerLinkActive="active">Matrícula</a>
+           </li>
+           <li role="presentation">
+             <a routerLink="/departments" routerLinkActive="active">Departamentos</a>
+           </li>
+         </ul>
+       </nav>
+     </div>
+    <hr>
+  </div>
+</div>
+<router-outlet></router-outlet>

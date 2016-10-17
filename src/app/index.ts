@@ -1,18 +1,30 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {routing, RootComponent} from './routes';
+import { NgModule }      from '@angular/core';
 
-import {DrcaComponent} from './drca';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule }    from '@angular/http';
+import { AppRoutingModule } from './routes';
+
+import { DrcaComponent } from './drca.component';
+import { EnrollmentComponent } from './enrollment.component';
+import { DepartmentsComponent } from './departments.component';
+import { SecretariatComponent } from './secretariat.component';
 
 @NgModule({
   imports: [
     BrowserModule,
-    routing
+    HttpModule,
+    AppRoutingModule
   ],
   declarations: [
-    RootComponent,
-    DrcaComponent
+    DrcaComponent,
+    EnrollmentComponent,
+    DepartmentsComponent,
+    SecretariatComponent
   ],
-  bootstrap: [RootComponent]
+  providers: [],
+  bootstrap: [
+    DrcaComponent
+  ]
 })
+
 export class AppModule {}
