@@ -5,7 +5,7 @@
     <div class="row btn-group-lg">
       <div *ngFor="let department of departments" (click)="onSelect(department)" class="btn col-md-4" [class.selected]="department === selectedDepartment">
         <h4>
-          <a (click)=showSecretariats()>{{department.name}}</a>
+          <a>{{department.name}}</a>
         </h4>
       </div>
     </div>

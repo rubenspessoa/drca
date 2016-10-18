@@ -8,6 +8,12 @@ import { DrcaComponent } from './drca.component';
 import { EnrollmentComponent } from './enrollment.component';
 import { DepartmentsComponent } from './departments.component';
 import { SecretariatComponent } from './secretariat.component';
+import { DisciplineComponent } from './discipline.component';
+import { EnrollStudentComponent } from './enrollstudent.component';
+import { StudentComponent } from './student.component';
+
+import { SecretariatService } from './services/secretariat.service';
+import { DepartmentService } from './services/department.service';
 
 @NgModule({
   imports: [
@@ -19,9 +25,15 @@ import { SecretariatComponent } from './secretariat.component';
     DrcaComponent,
     EnrollmentComponent,
     DepartmentsComponent,
-    SecretariatComponent
+    SecretariatComponent,
+    DisciplineComponent,
+    EnrollStudentComponent,
+    StudentComponent
   ],
-  providers: [],
+  providers: [
+    SecretariatService,
+    DepartmentService
+  ],
   bootstrap: [
     DrcaComponent
   ]

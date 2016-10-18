@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 import { Router } from '@angular/router';
-import {Department} from './department';
-import {DEPARTMENTS} from './mock-departments';
+
+import {Department} from './services/department';
+import {DEPARTMENTS} from './services/mock-departments';
 
 @Component({
   selector: 'fountain-departments',
-  template: require('./departments.component.html')
+  template: require('./templates/departments.component.html')
 })
 
 export class DepartmentsComponent {
@@ -23,6 +24,6 @@ export class DepartmentsComponent {
   }
 
   gotoSecretariat(departmentId: number, secretariatId: number): void {
-    this.router.navigate(['/:id1/:id2', {id1: departmentId, id2: secretariatId}]);
+    this.router.navigate(['departments/:id1/:id2', {id1: departmentId, id2: secretariatId}]);
   }
 }

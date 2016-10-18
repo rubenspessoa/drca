@@ -6,7 +6,7 @@
       <li *ngFor="let student of students" (click)="onSelect(student)" [class.selected]="hero === selectedHero">
         <h4>
           <div class="text-center">
-            <a>{{student.name}}</a>
+            <a (click)="gotoEnrollStudent(student.id)">{{student.name}}</a>
           </div>
         </h4>
       </li>
