@@ -2,9 +2,11 @@
   <div class="main container">
     <div class="text-center">
       <h3>
-        Nome vai aqui
+        {{student?.name}}
         <br>
-        <small>(Matrícula vai aqui)</small>
+        <small>Matrícula: {{student?.id}}\</small>
+        <br>
+        {{student?.secretariatId}}
       </h3>
     </div>
     <br>
@@ -13,13 +15,14 @@
       <ul class="list-unstyled">
         <li *ngFor="let discipline of disciplines" (click)="onSelect(discipline)" [class.selected]="discipline === selectedDiscipline">
           <h4>
-            <a>{{discipline.name}}</a>
+            <a>{{discipline?.name}}</a>
           </h4>
         </li>
       </ul>
     </div>
-    <hr>
+
     <div *ngIf="selectedDiscipline">
+      <hr>
       <h4 class="text-center">
         {{selectedDiscipline.name}}
         <br>
@@ -29,7 +32,7 @@
         2) Se o aluno está matriculado ou não.
         3) Se pode se matricular ou não.
         4) Os motivos que não pode, se necessário. -->
-      <button class="btn btn-primary">Matricular</button>
+        <button class="btn btn-primary">Matricular</button>
     </div>
   </div>
 </main>

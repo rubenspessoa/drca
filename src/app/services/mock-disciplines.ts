@@ -7,13 +7,10 @@ export const DISCIPLINES: Discipline[] = [
     credits: 4,
     mandatory: true,
     fromGraduationCourse: false,
-    professor: {
-      id: 1,
-      name: 'Professor1',
-      departmentId: 1
-    },
+    professor: {id: 1,name: 'Professor1',departmentId: 1},
     minimumCredits: 0,
     preRequisites: [],
+    secretariatId: 10
   },
   {
     id: 2,
@@ -21,11 +18,7 @@ export const DISCIPLINES: Discipline[] = [
     credits: 4,
     mandatory: true,
     fromGraduationCourse: false,
-    professor: {
-      id: 1,
-      name: 'Professor1',
-      departmentId: 1
-    },
+    professor: {id: 1,name: 'Professor1',departmentId: 1},
     minimumCredits: 0,
     preRequisites: [
       {
@@ -34,15 +27,13 @@ export const DISCIPLINES: Discipline[] = [
         credits: 4,
         mandatory: true,
         fromGraduationCourse: false,
-        professor: {
-          id: 1,
-          name: 'Professor1',
-          departmentId: 1
-        },
+        professor: {id: 1,name: 'Professor1',departmentId: 1},
         minimumCredits: 0,
         preRequisites: [],
+        secretariatId: 10
       }
     ],
+    secretariatId: 10
   },
   {
     id: 3,
@@ -50,38 +41,16 @@ export const DISCIPLINES: Discipline[] = [
     credits: 4,
     mandatory: true,
     fromGraduationCourse: false,
-    professor: {
-      id: 2,
-      name: 'Professor2',
-      departmentId: 3
-    },
+    professor: {id: 2, name: 'Professor2', departmentId: 3},
     minimumCredits: 0,
     preRequisites: [
-      {
-        id: 1,
-        name: 'Calculo',
-        credits: 4,
-        mandatory: true,
-        fromGraduationCourse: false,
-        professor: {
-          id: 1,
-          name: 'Professor1',
-          departmentId: 1
-        },
-        minimumCredits: 0,
-        preRequisites: [],
-      },
       {
         id: 2,
         name: 'Álgebra Linear',
         credits: 4,
         mandatory: true,
         fromGraduationCourse: false,
-        professor: {
-          id: 1,
-          name: 'Professor1',
-          departmentId: 1
-        },
+        professor: {id: 1,name: 'Professor1',departmentId: 1},
         minimumCredits: 0,
         preRequisites: [
           {
@@ -90,17 +59,16 @@ export const DISCIPLINES: Discipline[] = [
             credits: 4,
             mandatory: true,
             fromGraduationCourse: false,
-            professor: {
-              id: 1,
-              name: 'Professor1',
-              departmentId: 1
-            },
+            professor: {id: 1,name: 'Professor1',departmentId: 1},
             minimumCredits: 0,
             preRequisites: [],
+            secretariatId: 10
           }
         ],
+        secretariatId: 10
       }
     ],
+    secretariatId: 10
   },
   {
     id: 4,
@@ -115,6 +83,7 @@ export const DISCIPLINES: Discipline[] = [
     },
     minimumCredits: 0,
     preRequisites: [],
+    secretariatId: 11
   },
   {
     id: 5,
@@ -129,5 +98,6 @@ export const DISCIPLINES: Discipline[] = [
     },
     minimumCredits: 40,
     preRequisites: [],
+    secretariatId: 11
   }
 ];

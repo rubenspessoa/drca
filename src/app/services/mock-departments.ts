@@ -5,8 +5,8 @@ export const DEPARTMENTS: Department[] = [
     id: 1,
     name: 'Instituto de Computação',
     secretariats: [
-      {id: 10, name:'Graduação', departmentId: 1, disciplines: []},
-      {id: 11, name:'Pós-graduação', departmentId: 1, disciplines: []}
+      {id: 10, name:'Graduação', departmentId: 1},
+      {id: 11, name:'Pós-graduação', departmentId: 1}
     ],
     professors: [
       {
@@ -20,7 +20,7 @@ export const DEPARTMENTS: Department[] = [
     id: 2,
     name: 'Instituto de Matemática',
     secretariats: [
-      {id: 12, name:'Graduação', departmentId: 2, disciplines: []}
+      {id: 12, name:'Graduação', departmentId: 2}
     ],
     professors: []
   },
@@ -28,8 +28,8 @@ export const DEPARTMENTS: Department[] = [
     id: 3,
     name: 'Instituto de Física',
     secretariats: [
-      {id: 13, name:'Graduação', departmentId: 3, disciplines: []},
-      {id: 14, name:'Pós-graduação', departmentId: 3, disciplines: []}
+      {id: 13, name:'Graduação', departmentId: 3},
+      {id: 14, name:'Pós-graduação', departmentId: 3}
     ],
     professors: [
       {
@@ -43,8 +43,8 @@ export const DEPARTMENTS: Department[] = [
     id: 4,
     name: 'Centro de Educação',
     secretariats: [
-      {id: 15, name:'Graduação', departmentId: 4, disciplines: []},
-      {id: 16, name:'Pós-graduação', departmentId: 4, disciplines: []}
+      {id: 15, name:'Graduação', departmentId: 4},
+      {id: 16, name:'Pós-graduação', departmentId: 4}
     ],
     professors: [
       {
@@ -58,7 +58,7 @@ export const DEPARTMENTS: Department[] = [
     id: 5,
     name: 'Centro de Saúde',
     secretariats: [
-      {id: 17, name:'Graduação', departmentId: 5, disciplines: []}
+      {id: 17, name:'Graduação', departmentId: 5}
     ],
     professors: []
   }

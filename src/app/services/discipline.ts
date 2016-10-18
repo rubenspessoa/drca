@@ -10,4 +10,5 @@ export class Discipline {
   professor: Professor;
   minimumCredits: number;
   preRequisites: Discipline[];
+  secretariatId: number;
 }
