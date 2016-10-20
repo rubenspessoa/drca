@@ -4,14 +4,13 @@
       <h3>
         {{student?.name}}
         <br>
-        <small>Matrícula: {{student?.id}}\</small>
+        <small>Matrícula: {{student?.id}}</small>
         <br>
-        {{student?.secretariatId}}
       </h3>
     </div>
     <br>
     <div class="text-center">
-      <h4>Disciplinas disponíveis do Departamento:</h4>
+      <h4>Disciplinas disponíveis no {{department?.name}}:</h4>
       <ul class="list-unstyled">
         <li *ngFor="let discipline of disciplines" (click)="onSelect(discipline)" [class.selected]="discipline === selectedDiscipline">
           <h4>
@@ -27,12 +26,25 @@
         {{selectedDiscipline.name}}
         <br>
       </h4>
+
       <!-- Fazer esta lógica:
-        1) Mostrar a disciplina.
-        2) Se o aluno está matriculado ou não.
+        1) Mostrar a disciplina. OK
+        2) Se o aluno está matriculado ou não. OK
         3) Se pode se matricular ou não.
         4) Os motivos que não pode, se necessário. -->
-        <button class="btn btn-primary">Matricular</button>
+
+      <h5 class="text-center">
+        <div *ngIf="enrolled">
+          O aluno está matriculado na disciplina.
+        </div>
+        <div *ngIf="!enrolled">
+          O aluno não está matriculado na disciplina.
+          <br>
+          <br>
+          <br>
+          <button class="btn btn-primary">Matricular</button>
+        </div>
+      </h5>
     </div>
   </div>
 </main>

@@ -14,4 +14,9 @@ export class StudentService {
     return this.getStudents()
       .then(students => students.find(student => student.id === id));
   }
+
+  getStudentsBy(secretariatId: number): Promise<Student[]> {
+    return this.getStudents()
+      .then(students => students.filter(student => student.secretariatId === secretariatId));
+  }
 }

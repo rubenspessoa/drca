@@ -15,4 +15,9 @@ export class SecretariatService {
     return this.getSecretariats()
       .then(secretariats => secretariats.find(secretariat => secretariat.id === id));
   }
+
+  getSecretariatBy(departmentId: number): Promise<Secretariat[]> {
+    return this.getSecretariats()
+      .then(secretariats => secretariats.filter(secretariat => secretariat.departmentId === departmentId));
+  }
 }

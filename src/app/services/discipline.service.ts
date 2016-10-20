@@ -14,4 +14,9 @@ export class DisciplineService {
     return this.getDisciplines()
       .then(disciplines => disciplines.filter(discipline => discipline.secretariatId === secretariatId));
   }
+
+  getDiscipline(id: number): Promise<Discipline> {
+    return this.getDisciplines()
+      .then(discipline => discipline.find(discipline => discipline.id === id));
+  }
 }

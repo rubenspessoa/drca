@@ -33,30 +33,30 @@ export class SecretariatComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      console.log(params);
       let id1 = +params['id1'];
       let id2 = +params['id2'];
       this.getDepartment(id1);
-      this.getSecretariat(id2);
-    });
-    // Get discipline and students from a secretariat
-    this.getDisciplines();
-    this.getStudents();
-    // must get department too
+      this.getSecretariat(id2)
+        .then(
+          secretariat => this.getDisciplines(secretariat.id).then(
+            disciplines => this.getStudents(secretariat.id)
+          )
+        )
+      })
   }
 
-  getDisciplines(): void {
-    this.disciplineService.getDisciplines()
+  getDisciplines(id: number): Promise<Discipline[]> {
+    return this.disciplineService.getDisciplinesBy(id)
       .then((disciplines: Discipline[]) => this.disciplines = disciplines);
   }
 
-  getStudents(): void {
-    this.studentService.getStudents()
+  getStudents(secretariatId: number): Promise<Student[]> {
+    return this.studentService.getStudentsBy(secretariatId)
       .then((students: Student[]) => this.students = students);
   }
 
-  getSecretariat(id: number): void {
-    this.secretariatService.getSecretariat(id)
+  getSecretariat(id: number): Promise<Secretariat> {
+    return this.secretariatService.getSecretariat(id)
       .then(secretariat => this.secretariat = secretariat);
   }
 

@@ -16,6 +16,9 @@ import { SecretariatService } from './services/secretariat.service';
 import { DepartmentService } from './services/department.service';
 import { StudentService} from './services/student.service';
 import { DisciplineService } from './services/discipline.service';
+import { StudentAttendsDisciplineService } from './services/studentAttendsDiscipline.service';
+import { ProfessorService } from './services/professor.service';
+
 
 @NgModule({
   imports: [
@@ -36,7 +39,9 @@ import { DisciplineService } from './services/discipline.service';
     SecretariatService,
     DepartmentService,
     StudentService,
-    DisciplineService
+    DisciplineService,
+    StudentAttendsDisciplineService,
+    ProfessorService
   ],
   bootstrap: [
     DrcaComponent
