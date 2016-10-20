@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
-import {Department} from './services/department';
-import {DepartmentService} from './services/department.service';
+import {Department} from '../services/department';
+import {DepartmentService} from '../services/department.service';
 
 @Component({
   selector: 'fountain-departments',
-  template: require('./templates/departments.component.html')
+  template: require('../templates/departments.component.html')
 })
 
 export class DepartmentsComponent implements OnInit {

@@ -1,23 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
-import {StudentService} from './services/student.service';
-import {Student} from './services/student';
+import {StudentService} from '../services/student.service';
+import {Student} from '../services/student';
 
-import {SecretariatService} from './services/secretariat.service';
-import {Secretariat} from './services/secretariat';
+import {SecretariatService} from '../services/secretariat.service';
+import {Secretariat} from '../services/secretariat';
 
-import {DisciplineService} from './services/discipline.service';
-import {Discipline} from './services/discipline';
+import {DisciplineService} from '../services/discipline.service';
+import {Discipline} from '../services/discipline';
 
-import {DepartmentService} from './services/department.service';
-import {Department} from './services/department';
+import {DepartmentService} from '../services/department.service';
+import {Department} from '../services/department';
 
-import {StudentAttendsDisciplineService} from './services/studentAttendsDiscipline.service';
+import {StudentAttendsDisciplineService} from '../services/studentAttendsDiscipline.service';
 
 @Component({
   selector: 'fountain-enrollstudent',
-  template: require('./templates/enrollstudent.component.html')
+  template: require('../templates/enrollstudent.component.html')
 })
 
 export class EnrollStudentComponent implements OnInit {

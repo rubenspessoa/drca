@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
-import {DisciplineService} from './services/discipline.service';
-import {Discipline} from './services/discipline';
+import {DisciplineService} from '../services/discipline.service';
+import {Discipline} from '../services/discipline';
 
-import {StudentAttendsDiscipline} from './services/studentAttendsDiscipline';
-import {StudentAttendsDisciplineService} from './services/studentAttendsDiscipline.service';
+import {StudentAttendsDiscipline} from '../services/studentAttendsDiscipline';
+import {StudentAttendsDisciplineService} from '../services/studentAttendsDiscipline.service';
 
-import {ProfessorService} from './services/professor.service';
-import {Professor} from './services/professor';
+import {ProfessorService} from '../services/professor.service';
+import {Professor} from '../services/professor';
 
-import {StudentService} from './services/student.service';
-import {Student} from './services/student';
+import {StudentService} from '../services/student.service';
+import {Student} from '../services/student';
 
 @Component({
   selector: 'fountain-discipline',
-  template: require('./templates/discipline.component.html')
+  template: require('../templates/discipline.component.html')
 })
 
 export class DisciplineComponent implements OnInit {

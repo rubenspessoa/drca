@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
 import { AppRoutingModule } from './routes';
 
-import { DrcaComponent } from './drca.component';
-import { EnrollmentComponent } from './enrollment.component';
-import { DepartmentsComponent } from './departments.component';
-import { SecretariatComponent } from './secretariat.component';
-import { DisciplineComponent } from './discipline.component';
-import { EnrollStudentComponent } from './enrollstudent.component';
-import { StudentComponent } from './student.component';
+import { DrcaComponent } from './components/drca.component';
+import { EnrollmentComponent } from './components/enrollment.component';
+import { DepartmentsComponent } from './components/departments.component';
+import { SecretariatComponent } from './components/secretariat.component';
+import { DisciplineComponent } from './components/discipline.component';
+import { EnrollStudentComponent } from './components/enrollstudent.component';
+import { StudentComponent } from './components/student.component';
 
 import { SecretariatService } from './services/secretariat.service';
 import { DepartmentService } from './services/department.service';

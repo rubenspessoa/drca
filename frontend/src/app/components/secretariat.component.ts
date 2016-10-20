@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router }   from '@angular/router';
 
-import {Secretariat} from './services/secretariat';
-import {SecretariatService} from './services/secretariat.service';
-import {Discipline} from './services/discipline';
-import {DisciplineService} from './services/discipline.service';
-import {Student} from './services/student';
-import {StudentService} from './services/student.service';
-import {Department} from './services/department';
-import {DepartmentService} from './services/department.service';
+import {Secretariat} from '../services/secretariat';
+import {SecretariatService} from '../services/secretariat.service';
+import {Discipline} from '../services/discipline';
+import {DisciplineService} from '../services/discipline.service';
+import {Student} from '../services/student';
+import {StudentService} from '../services/student.service';
+import {Department} from '../services/department';
+import {DepartmentService} from '../services/department.service';
 
 @Component({
   selector: 'fountain-secretariat',
-  template: require('./templates/secretariat.component.html')
+  template: require('../templates/secretariat.component.html')
 })
 
 export class SecretariatComponent implements OnInit {

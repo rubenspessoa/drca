@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import { EnrollmentComponent } from './enrollment.component';
-import { DepartmentsComponent } from './departments.component';
-import { SecretariatComponent } from './secretariat.component';
-import { DisciplineComponent } from './discipline.component';
-import { EnrollStudentComponent } from './enrollstudent.component';
-import { StudentComponent } from './student.component';
+import { EnrollmentComponent } from './components/enrollment.component';
+import { DepartmentsComponent } from './components/departments.component';
+import { SecretariatComponent } from './components/secretariat.component';
+import { DisciplineComponent } from './components/discipline.component';
+import { EnrollStudentComponent } from './components/enrollstudent.component';
+import { StudentComponent } from './components/student.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/enrollment', pathMatch: 'full' },
