@@ -241,6 +241,39 @@ Parse.Cloud.define('fetchDepartmentForSecretaryWithId', function(req, res) {
 	});
 });
 
+Parse.Cloud.define('fetchDepartmentForStudentWithId', function(req, res) {
+	const id = req.params.id;
+
+	if(typeof id !== 'string') {
+		res.error('invalid id type');
+	}
+
+	var query = new Parse.Query(Student);
+	query.get(id).then(function(student) {
+		const course = student.get(studentCourse);
+		query = new Parse.Query(Course);
+		return query.get(course.id);
+	}).then(function(course) {
+		const secretary = course.get(courseSecretary);
+		query = new Parse.Query(Secretary);
+		return query.get(secretary.id);
+	}).then(function(secretary) {
+		query1 = new Parse.Query(Department);
+		query1.equalTo(departmentGradSecretary, secretary);
+
+		query2 = new Parse.Query(Department);
+		query2.equalTo(departmentDocSecretary, secretary);
+
+		query = Parse.Query.or(query1, query2);
+
+		return query.first();
+	}).then(function(department) {
+		res.success(department);
+	}, function(error) {
+		res.error(error);
+	});
+});
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const Secretary = Parse.Object.extend('Secretary');
 const secretaryName = 'name';
