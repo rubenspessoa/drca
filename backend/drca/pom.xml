@@ -13,6 +13,9 @@
         <version>1.4.1.RELEASE</version>
     </parent>
 
+    <packaging>jar</packaging>
+
+
     <dependencies>
         <dependency>
     		<groupId>com.googlecode.json-simple</groupId>
@@ -37,6 +40,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <start-class>server.Application</start-class>
     </properties>
 
 
@@ -45,6 +49,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.4.1.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

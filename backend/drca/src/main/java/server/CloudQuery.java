@@ -5,9 +5,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 final class CloudQuery {
-	public static void main(String[] args) throws Exception {
-		CloudQuery.callCloudCodeFunction("fetchTeachers", "");
-	}
 	
 	static String callCloudCodeFunction(String functionName, String param) throws Exception {
 		if(functionName == null) {
