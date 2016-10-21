@@ -1,4 +1,4 @@
-/// <reference path="../../typings/index.d.ts"/>
+/// <reference path="../../../typings/index.d.ts"/>
 
 import {EnrollStudentComponent} from './enrollstudent.component';
 import {TestBed, async} from '@angular/core/testing';

@@ -40,15 +40,18 @@ export class DisciplineComponent implements OnInit {
     this.route.params.forEach(
       (params: Params) => {
         let id = +params['id'];
+        /*
         this.getDiscipline(id)
           .then(
             discipline => this.getStuDiscs(this.discipline.id)
               .then(studiscs => this.getStudents())
           );
+        */
       }
     );
   }
 
+/*
   getDiscipline(id: number): Promise<Discipline> {
       return this.disciplineService.getDiscipline(id)
         .then(discipline => this.discipline = discipline);
@@ -68,4 +71,5 @@ export class DisciplineComponent implements OnInit {
     this.studentService.getStudent(id)
     .then(student => this.students.push(student));
   }
+  */
 }

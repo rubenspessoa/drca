@@ -11,8 +11,7 @@ import {StudentService} from '../services/student.service';
 
 export class EnrollmentComponent implements OnInit {
   public text: string;
-  selectedStudent: Student;
-  students: Student[];
+  students: Object[];
 
   constructor(
     private router: Router,
@@ -25,16 +24,15 @@ export class EnrollmentComponent implements OnInit {
     this.getStudents();
   }
 
-  getStudents(): void {
-    this.studentService.getStudents()
-      .then((students: Student[]) => this.students = students);
+  getStudents(): Promise<any> {
+    return this.studentService.getStudents()
+      .then(response => {
+        console.log(response);
+        this.students = response;
+      });
   }
 
-  onSelect(student: Student): void {
-    this.selectedStudent = student;
-  }
-
-  gotoEnrollStudent(studentid: number): void {
+  gotoEnrollStudent(studentid: string): void {
     this.router.navigate(['enroll-student/:id', {id: studentid}]);
   }
 }

@@ -4,13 +4,13 @@
       <h3>
         {{student?.name}}
         <br>
-        <small>Matrícula: {{student?.id}}</small>
+        <small>Matrícula: {{student?.registry}}</small>
         <br>
       </h3>
     </div>
     <br>
     <div class="text-center">
-      <h4>Disciplinas disponíveis no {{department?.name}}:</h4>
+      <h4>Disciplinas disponíveis em {{department?.name}}:</h4>
       <ul class="list-unstyled">
         <li *ngFor="let discipline of disciplines" (click)="onSelect(discipline)" [class.selected]="discipline === selectedDiscipline">
           <h4>

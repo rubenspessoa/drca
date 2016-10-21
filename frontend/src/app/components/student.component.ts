@@ -22,7 +22,6 @@ export class StudentComponent implements OnInit {
   public student: Student;
   public studiscs: StudentAttendsDiscipline[];
   public disciplines = [];
-
   constructor(
     private studentService: StudentService,
     private route: ActivatedRoute,
@@ -36,19 +35,23 @@ export class StudentComponent implements OnInit {
     this.route.params.forEach(
       (params: Params) => {
         let id = +params['id'];
+        /*
         this.getStudent(id)
           .then(
             student => this.getStudiscs(this.student.id)
               .then(studiscs => this.getDisciplines())
           );
+          */
       }
     )
   }
 
+  /*
   getStudent(id: number): Promise<Student> {
     return this.studentService.getStudent(id)
       .then(student => this.student = student);
   }
+
 
   getStudiscs(studentId: number): Promise<StudentAttendsDiscipline[]> {
     return this.studiscService.getDisciplinesBy(studentId)
@@ -64,5 +67,5 @@ export class StudentComponent implements OnInit {
   getDiscipline(id: number): void {
     this.disciplineService.getDiscipline(id)
       .then(discipline => this.disciplines.push(discipline));
-  }
+  }*/
 }

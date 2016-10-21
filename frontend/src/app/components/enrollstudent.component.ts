@@ -26,8 +26,8 @@ export class EnrollStudentComponent implements OnInit {
   disciplines = [];
   secretariat: Secretariat;
   departmentSecretariats: Secretariat[];
-  student: Student;
-  department: Department;
+  student: any;
+  department: any;
   enrolled: boolean;
 
   constructor(
@@ -39,33 +39,18 @@ export class EnrollStudentComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.text = 'My brand new component!';
+
   }
 
   ngOnInit(): void {
-    this.route.params.forEach((params: Params) => {
-      let id = +params['id'];
-      this.getStudent(id).then(
-        student => {
-          this.getSecretariat(this.student.secretariatId).then(
-            secretariat => {
-              this.getDepartment(this.secretariat.departmentId).then(
-                depatment => {
-                  this.getSecretariatsFrom(this.department.id).then(
-                    secretariats => {
-                      secretariats.forEach(
-                        secretariat => {
-                          this.getDisciplines(secretariat.id);
-                        }
-                      )
-                    }
-                  )
-                }
-              );
-            }
-          );
-        }
-      );
+    this.route.params.forEach(params => {
+      let id = params['id'];
+      this.getStudent(id).then(student => {
+          this.getDepartmentForStudentWithId(id).then(department => {
+            console.log(this.department);
+            this.getDisciplinesForDepartmentWithId(this.department.objectId);
+          });
+      });
     });
   }
 
@@ -78,6 +63,18 @@ export class EnrollStudentComponent implements OnInit {
           }
         );
       });
+  }
+
+  getDepartmentForStudentWithId(id: string): Promise<any> {
+    return this.departmentService.getDepartmentForStudentWithId(id).then(department => {
+      this.department = department;
+    });
+  }
+
+  getDisciplinesForDepartmentWithId(id: string): Promise<any> {
+    return this.disciplineService.getDisciplinesForDepartmentWithId(id).then(disciplines => {
+      this.disciplines = disciplines;
+    });
   }
 
   getInfoAboutDiscipline(): void {
@@ -93,9 +90,11 @@ export class EnrollStudentComponent implements OnInit {
     }
 
 
-  getStudent(id: number): Promise<Student> {
+  getStudent(id: string): Promise<any> {
     return this.studentService.getStudent(id)
-      .then(student => this.student = student);
+      .then(student => {
+        this.student = student;
+      });
   }
 
   getSecretariat(id: number): Promise<Secretariat> {
