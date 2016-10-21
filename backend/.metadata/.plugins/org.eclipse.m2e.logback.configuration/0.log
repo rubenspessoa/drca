@@ -647,3 +647,23 @@ org.eclipse.core.runtime.CoreException: Launch configuration CloudQuery referenc
 2016-10-21 00:37:31,226 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
 2016-10-21 00:37:31,231 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-10-21 00:37:31,231 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/test/resources
+2016-10-21 09:56:45,069 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-21 09:56:45,078 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
+2016-10-21 09:56:45,078 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
+2016-10-21 09:56:45,081 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-21 09:56:45,082 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/test/resources
+2016-10-21 10:38:55,595 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-21 10:38:55,603 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
+2016-10-21 10:38:55,604 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
+2016-10-21 10:38:55,610 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-21 10:38:55,611 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/test/resources
+2016-10-21 10:54:28,046 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-21 10:54:28,047 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
+2016-10-21 10:54:28,047 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
+2016-10-21 10:54:28,051 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-21 10:54:28,051 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/test/resources
+2016-10-21 10:59:33,564 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-21 10:59:33,564 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
+2016-10-21 10:59:33,564 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/main/resources
+2016-10-21 10:59:33,572 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-21 10:59:33,572 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/bschron/Documents/enrollmentSystem/backend/drca/src/test/resources

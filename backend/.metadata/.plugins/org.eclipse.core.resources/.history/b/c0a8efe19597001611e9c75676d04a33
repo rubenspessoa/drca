@@ -40,17 +40,6 @@ public class Server {
 	}
 
 	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping("/fetchStudentsForClassWithId")
-	public String fetchStudentsForClassWithId(@RequestParam(value=idKey) String id) {
-		try {
-			return CloudQuery.callCloudCodeFunction("fetchStudentsForClassWithId", "{\"" + idKey + "\": \"" + id + "\"}");
-		}
-		catch(Exception e) {
-			return e.toString();
-		}
-	}
-
-	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping("/fetchClassWithId")
 	public String fetchClassWithId(@RequestParam(value=idKey) String id) {
 		try {
@@ -88,17 +77,6 @@ public class Server {
     public String fetchAvailableClassesForSecretaryWithId(@RequestParam(value=idKey) String id) {
     	try {
     		return CloudQuery.callCloudCodeFunction("fetchAvailableClassesForSecretaryWithId", "{\"" + idKey + "\": \"" + id + "\"}");
-    	}
-    	catch(Exception e) {
-    		return e.toString();
-    	}
-    }
-
-	@CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping("/fetchClassesByIds")
-    public String fetchClassesByIds(@RequestParam(value=idKey) String id) {
-    	try {
-    		return CloudQuery.callCloudCodeFunction("fetchClassesByIds", "{\"" + idKey + "\": \"" + id + "\"}");
     	}
     	catch(Exception e) {
     		return e.toString();

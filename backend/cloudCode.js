@@ -112,6 +112,61 @@ Parse.Cloud.define('fetchClassesForDepartmentWithId', function(req, res) {
 	});
 });
 
+Parse.Cloud.define('fetchAvailableClassesForDepartmentWithId', function(req, res) {
+	const id = req.params.id;
+
+	if(typeof id !== 'string') {
+		res.error('invalid id type');
+	}
+
+	var query = new Parse.Query(Department);
+	query.get(id).then(function(department) {
+		const grad = department.get(departmentGradSecretary);
+		const doc = department.get(departmentDocSecretary);
+
+		var query1 = new Parse.Query(Course);
+		query1.equalTo(courseSecretary, grad);
+		var query2 = new Parse.Query(Course);
+		query2.equalTo(courseSecretary, doc);
+		query = Parse.Query.or(query1, query2);
+
+		return query.find();
+	}).then(function(courses) {
+		query = new Parse.Query(Class);
+		query.containedIn(classCourse, courses);
+		query.equalTo(classIsAvailable, true);
+		return query.find()
+	}).then(function(classes) {
+		res.success(classes);
+	}, function(error) {
+		res.error(error);
+	});
+});
+
+Parse.Cloud.define('fetchAvailableClassesForSecretaryWithId', function(req, res) {
+	const id = req.params.id;
+
+	if(typeof id !== 'string') {
+		res.error('invalid id type');
+	}
+
+	var query = new Parse.Query(Secretary);
+	query.get(id).then(function(secretary) {
+		query = new Parse.Query(Course);
+		query.equalTo(courseSecretary, secretary);
+		return query.find();
+	}).then(function(courses) {
+		query = new Parse.Query(Class);
+		query.containedIn(classCourse, courses);
+		query.equalTo(classIsAvailable, true);
+		return query.find()
+	}).then(function(classes) {
+		res.success(classes);
+	}, function(error) {
+		res.error(error);
+	});
+});
+
 Parse.Cloud.define('fetchClassesForSecretaryWithId', function(req, res) {
 	const id = req.params.id;
 
@@ -465,6 +520,36 @@ Parse.Cloud.define('fetchStudentsForSecretaryWithId', function(req, res) {
 		res.success(students);
 	}, function(error) {
 		res.error(error);
+	});
+});
+
+Parse.Cloud.define('fetchStudentsForClassWithId', function(req, res) {
+	const id = req.params.id;
+
+	if(typeof id !== 'string') {
+		res.error('invalid id type');
+	}
+
+	var query = new Parse.Query(Student);
+	query.find().then(function(students) {
+		var result = [];
+
+		for(var i = 0; i < students.length; i++) {
+			student = students[i];
+			if(typeof student.get(studentCoursedClasses) == 'object') {
+				for(var j = 0; j < student.get(studentCoursedClasses).length; j++) {
+					if(student.get(studentCoursedClasses)[j] == id) {
+						found = true;
+						result.push(student);
+						break;
+					}
+				}
+			}
+		}
+
+		res.success(result);
+	}, function(error) {
+		res.success(error);
 	});
 });
 
