@@ -2,18 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import {StudentService} from '../services/student.service';
-import {Student} from '../services/student';
-
 import {SecretariatService} from '../services/secretariat.service';
-import {Secretariat} from '../services/secretariat';
-
 import {DisciplineService} from '../services/discipline.service';
-import {Discipline} from '../services/discipline';
-
 import {DepartmentService} from '../services/department.service';
-import {Department} from '../services/department';
-
-import {StudentAttendsDisciplineService} from '../services/studentAttendsDiscipline.service';
 
 @Component({
   selector: 'fountain-enrollstudent',
@@ -22,20 +13,18 @@ import {StudentAttendsDisciplineService} from '../services/studentAttendsDiscipl
 
 export class EnrollStudentComponent implements OnInit {
   public text: string;
-  selectedDiscipline: Discipline;
+  selectedDiscipline: any;
   disciplines = [];
-  secretariat: Secretariat;
-  departmentSecretariats: Secretariat[];
   student: any;
   department: any;
   enrolled: boolean;
+  enrollResult: Object;
 
   constructor(
     private disciplineService: DisciplineService,
     private studentService: StudentService,
     private secretariatService: SecretariatService,
     private departmentService: DepartmentService,
-    private studiscService: StudentAttendsDisciplineService,
     private router: Router,
     private route: ActivatedRoute
   ) {
@@ -43,6 +32,7 @@ export class EnrollStudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.enrollResult = {"content": ""};
     this.route.params.forEach(params => {
       let id = params['id'];
       this.getStudent(id).then(student => {
@@ -52,17 +42,6 @@ export class EnrollStudentComponent implements OnInit {
           });
       });
     });
-  }
-
-  getDisciplines(secretariatId: number): void {
-    this.disciplineService.getDisciplinesBy(secretariatId)
-      .then(disciplines => {
-        disciplines.forEach(
-          discipline => {
-            this.disciplines.push(discipline);
-          }
-        );
-      });
   }
 
   getDepartmentForStudentWithId(id: string): Promise<any> {
@@ -77,19 +56,6 @@ export class EnrollStudentComponent implements OnInit {
     });
   }
 
-  getInfoAboutDiscipline(): void {
-    this.studiscService.getDisciplinesBy(this.student.id).then(
-      studiscs => {
-          if (studiscs.find(studisc => studisc.disciplineId === this.selectedDiscipline.id)) {
-            this.enrolled = true;
-          } else {
-            this.enrolled = false;
-          };
-        }
-      );
-    }
-
-
   getStudent(id: string): Promise<any> {
     return this.studentService.getStudent(id)
       .then(student => {
@@ -97,23 +63,19 @@ export class EnrollStudentComponent implements OnInit {
       });
   }
 
-  getSecretariat(id: number): Promise<Secretariat> {
-    return this.secretariatService.getSecretariat(id)
-      .then(secretariat => this.secretariat = secretariat);
+  enrollStudentWithIdToDisciplineWithId(id: string, disciplineId: string): Promise<any> {
+    return this.disciplineService.enrollStudentWithIdToDisciplineWithId(id, disciplineId);
   }
 
-  getSecretariatsFrom(departmentId: number): Promise<Secretariat[]> {
-    return this.secretariatService.getSecretariatBy(departmentId)
-      .then(secretariats => this.departmentSecretariats = secretariats);
-  }
-
-  getDepartment(id: number): Promise<Department> {
-    return this.departmentService.getDepartment(id)
-      .then(department => this.department = department);
-  }
-
-  onSelect(discipline: Discipline): void {
+  onSelect(discipline: any): void {
     this.selectedDiscipline = discipline;
-    this.getInfoAboutDiscipline();
+    this.enrollResult = {"content": ""};
+  }
+
+  enroll(): void {
+    this.enrollResult = {"content": "processando..."};
+    this.enrollStudentWithIdToDisciplineWithId(this.student.objectId, this.selectedDiscipline.objectId).then(result => {
+      this.enrollResult = {"content": result};
+    });
   }
 }

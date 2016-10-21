@@ -1,21 +1,21 @@
 <main>
   <div class="main container">
     <h2 class="text-center">{{text}} {{discipline?.name}}<br>
-    <small>{{discipline?.professor?.name}}</small></h2>
+    <small>{{professor?.name}}</small></h2>
     <br>
     <h3>
     <ul>
-      <li> Código da disciplina: {{discipline?.id}}</li>
+      <li> Código da disciplina: {{discipline?.code}}</li>
       <li> Número de créditos: {{discipline?.credits}}</li>
       <li> Código dos pré-requisitos:</li>
         <ul>
-          <li *ngFor="let disc of discipline?.preRequisites">{{disc.id}}</li>
+          <li *ngFor="let disc of preRequisites">{{disc.code}}</li>
         </ul>
-      <li> Quantidade de créditos mínimos para cursar a disciplina: {{discipline?.minimumCredits}}</li>
+      <li> Quantidade de créditos mínimos para cursar a disciplina: {{discipline?.requiredCredit}}</li>
       <li> Lista de alunos matriculados: </li>
         <ul>
           <li *ngFor="let stu of students">
-            {{stu?.id}}: {{stu?.name}}
+            {{stu?.registry}}: {{stu?.name}}
           </li>
         </ul>
     </ul>

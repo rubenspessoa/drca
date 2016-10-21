@@ -34,16 +34,8 @@
         4) Os motivos que não pode, se necessário. -->
 
       <h5 class="text-center">
-        <div *ngIf="enrolled">
-          O aluno está matriculado na disciplina.
-        </div>
-        <div *ngIf="!enrolled">
-          O aluno não está matriculado na disciplina.
-          <br>
-          <br>
-          <br>
-          <button class="btn btn-primary">Matricular</button>
-        </div>
+        <p>{{enrollResult.content}}</p>
+        <button class="btn btn-primary" (click)="enroll()">Matricular</button>
       </h5>
     </div>
   </div>

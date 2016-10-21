@@ -55,14 +55,17 @@ export class DisciplineService {
     console.log(url);
     return this.http.get(url)
             .toPromise()
-            .then(response => response.json().result)
+            .then(response => response.json().result);
   }
 
-  getDisciplines(id: string[]): Promise<any> {
-    let url = this.fetchClassesByIdsUrl + id;
+  // TODO
+
+  getDisciplinesForStudentWithId(id: string): Promise<any[]> {
+    let url = 'http://' + ip + ':8080/fetchClassesForStudentWithId?id=' + id;
     console.log(url);
+
     return this.http.get(url)
             .toPromise()
-            .then(response => response.json().result)
+            .then(response => response.json().result);
   }
 }

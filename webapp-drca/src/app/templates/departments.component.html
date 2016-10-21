@@ -3,7 +3,7 @@
     <h2 class="text-center">{{text}}</h2>
     <br>
     <div class="row btn-group-lg">
-      <div *ngFor="let department of departments" (click)="onSelect(department)" class="btn col-md-4" [class.selected]="department === selectedDepartment">
+      <div *ngFor="let department of departments" (click)="onSelect(department)" class="btn col-md-4" [class.selected]="department == selectedDepartment">
         <h4>
           <a>{{department.name}}</a>
         </h4>
@@ -21,9 +21,9 @@
 
     <br>
     <div class="row btn-group-lg">
-      <div *ngFor="let secretariat of selectedDepartment.secretariats" class="btn col-md-6">
+      <div *ngFor="let secretariat of secretariats" class="btn col-md-6">
         <h4>
-          <a (click)="gotoSecretariat(selectedDepartment.id, secretariat.id)">{{secretariat.name}}</a>
+          <a (click)="gotoSecretariat(selectedDepartment.name, secretariat.objectId)">{{secretariat.name}}</a>
         </h4>
       </div>
     </div>

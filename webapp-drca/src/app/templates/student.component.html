@@ -1,7 +1,7 @@
 <main>
   <div class="main container">
     <h2 class="text-center">{{text}}<br>
-    <small>{{student?.name}} - Matrícula: {{student?.id}}</small></h2>
+    <small>{{student?.name}} - Matrícula: {{student?.registry}}</small></h2>
     <br>
     <h3> Está matriculado em: </h3>
 
@@ -16,7 +16,7 @@
         <template ngFor let-discipline [ngForOf]="disciplines">
           <tr>
             <td>{{discipline?.name}}</td>
-            <td>{{discipline?.id}}</td>
+            <td>{{discipline?.code}}</td>
           </tr>
         </template>
       </tbody>

@@ -3,9 +3,6 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { ip } from './rest';
 
-import { Professor } from './professor';
-import { PROFESSORS } from './mock-professors';
-
 @Injectable()
 export class ProfessorService {
 
@@ -21,9 +18,5 @@ export class ProfessorService {
     return this.http.get(url)
                .toPromise()
                .then(response => response.json().result);
-  }
-
-  getProfessors(): Promise<Professor[]> {
-    return Promise.resolve(PROFESSORS);
   }
 }

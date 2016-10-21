@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/enrollment', pathMatch: 'full' },
   { path: 'enrollment', component: EnrollmentComponent },
   { path: 'departments', component: DepartmentsComponent },
-  { path: 'departments/:id1/:id2', component: SecretariatComponent},
+  { path: 'departments/:depName/:id', component: SecretariatComponent},
   { path: 'enroll-student/:id', component: EnrollStudentComponent},
   { path: 'discipline/:id', component: DisciplineComponent},
   { path: 'student/:id', component: StudentComponent}

@@ -29,9 +29,15 @@ export class StudentComponent implements OnInit {
 
         this.studentService.getStudent(id).then(student => {
           this.student = student;
-        })
+          console.log(student);
 
+
+        })
+        this.disciplineService.getDisciplinesForStudentWithId(id).then(disciplines => {
+          this.disciplines = disciplines;
+          console.log(disciplines);
+        });
       }
-    )
+    );
   }
 }

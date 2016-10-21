@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
-import {Student} from '../services/student';
 import {StudentService} from '../services/student.service';
 
 @Component({
@@ -23,6 +22,7 @@ export class EnrollmentComponent implements OnInit {
   ngOnInit(): void {
     this.getStudents();
   }
+
 
   getStudents(): Promise<any> {
     return this.studentService.getStudents()

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-
-import { Student } from './student';
 import { ip } from './rest';
 
 @Injectable()
@@ -12,6 +10,7 @@ export class StudentService {
   private studentUrl = 'http://' + ip + ':8080/fetchStudentWithId?id=';  // URL to web api
   private fetchStudentsForSecretaryWithIdUrl = 'http://' + ip + ':8080/fetchStudentsForSecretaryWithId?id=';
   private fetchStudentsForClassWithIdUrl = 'http://' + ip + ':8080/fetchStudentsForClassWithId?id=';
+
   constructor(
     private http: Http
   ) {}
@@ -22,11 +21,6 @@ export class StudentService {
     return this.http.get(url)
                .toPromise()
                .then(response => response.json().result);
-  }
-
-  getStudentsBy(secretariatId: number): Promise<Student[]> {
-    return this.getStudents()
-      .then(students => students.filter(student => student.secretariatId === secretariatId));
   }
 
   getStudentsForSecretaryWithId(id: string): Promise<any[]> {

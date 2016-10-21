@@ -16,7 +16,6 @@ import { SecretariatService } from './services/secretariat.service';
 import { DepartmentService } from './services/department.service';
 import { StudentService} from './services/student.service';
 import { DisciplineService } from './services/discipline.service';
-import { StudentAttendsDisciplineService } from './services/studentAttendsDiscipline.service';
 import { ProfessorService } from './services/professor.service';
 
 
@@ -40,7 +39,6 @@ import { ProfessorService } from './services/professor.service';
     DepartmentService,
     StudentService,
     DisciplineService,
-    StudentAttendsDisciplineService,
     ProfessorService
   ],
   bootstrap: [
