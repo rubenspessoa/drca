@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="net.minidev.json.JSONObject"/>
+<fullyQualifiedTypeName name="net.minidev.json.parser.JSONParser"/>
+<fullyQualifiedTypeName name="org.skyscreamer.jsonassert.JSONParser"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.core.JsonParser"/>
+<fullyQualifiedTypeName name="org.springframework.boot.json.JsonParser"/>
+<fullyQualifiedTypeName name="org.json.simple.JSONValue"/>
+<fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+<fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+</qualifiedTypeNameHistroy>
