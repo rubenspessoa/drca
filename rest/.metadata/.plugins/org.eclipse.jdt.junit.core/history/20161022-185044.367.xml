@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ServerTest" project="drca" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="server.ServerTest" time="1.376">
+    <testcase name="testFetchStudents" classname="server.ServerTest" time="0.174"/>
+    <testcase name="testFetchStudentWithId" classname="server.ServerTest" time="1.202"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ServerTest" project="drca" tests="8" started="8" failures="0" errors="0" ignored="0">
+  <testsuite name="server.ServerTest" time="58.166">
+    <testcase name="testFetchAvailableClassesForSecretaryWithId" classname="server.ServerTest" time="0.845"/>
+    <testcase name="testFetchDepartmentForStudentWithId" classname="server.ServerTest" time="1.555"/>
+    <testcase name="testFetchClassWithId" classname="server.ServerTest" time="1.722"/>
+    <testcase name="testFetchStudents" classname="server.ServerTest" time="0.193"/>
+    <testcase name="testFetchClassesForStudentWithId" classname="server.ServerTest" time="1.198"/>
+    <testcase name="testEnroll" classname="server.ServerTest" time="49.781"/>
+    <testcase name="testFetchStudentWithId" classname="server.ServerTest" time="1.139"/>
+    <testcase name="testFetchStudentsForClassWithId" classname="server.ServerTest" time="1.732"/>
+  </testsuite>
+</testrun>

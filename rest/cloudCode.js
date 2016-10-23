@@ -94,11 +94,21 @@ Parse.Cloud.define('fetchClassesForDepartmentWithId', function(req, res) {
 		const grad = department.get(departmentGradSecretary);
 		const doc = department.get(departmentDocSecretary);
 
-		var query1 = new Parse.Query(Course);
-		query1.equalTo(courseSecretary, grad);
-		var query2 = new Parse.Query(Course);
-		query2.equalTo(courseSecretary, doc);
-		query = Parse.Query.or(query1, query2);
+		if(typeof grad == 'object' && typeof doc == 'object') {
+			var query1 = new Parse.Query(Course);
+			query1.equalTo(courseSecretary, grad);
+			var query2 = new Parse.Query(Course);
+			query2.equalTo(courseSecretary, doc);
+			query = Parse.Query.or(query1, query2);
+		}
+		else if(typeof grad == 'object') {
+			query = new Parse.Query(Course);
+			query.equalTo(courseSecretary, grad);
+		}
+		else {
+			query = new Parse.Query(Course);
+			query.equalTo(courseSecretary, doc);	
+		}
 
 		return query.find();
 	}).then(function(courses) {
@@ -405,7 +415,7 @@ Parse.Cloud.define('fetchDocSecretaryForStudentWithId', function(req, res) {
 	}).then(function(department) {
 		const doc = department.get(departmentDocSecretary);
 		query = new Parse.Query(Secretary);
-		return query.get(doc.id);
+		return (typeof doc == 'object') ? query.get(doc.id) : Parse.Promise.as();
 	}).then(function(docSecretary) {
 		res.success(docSecretary);
 	}, function(error) {
