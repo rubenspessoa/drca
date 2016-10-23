@@ -27,14 +27,8 @@
         <br>
       </h4>
 
-      <!-- Fazer esta lógica:
-        1) Mostrar a disciplina. OK
-        2) Se o aluno está matriculado ou não. OK
-        3) Se pode se matricular ou não.
-        4) Os motivos que não pode, se necessário. -->
-
-      <h5 class="text-center">
-        <p>{{enrollResult.content}}</p>
+      <h5 class="text-center text-danger">
+        <p id="msgReturned">{{enrollResult.content}}</p>
         <button id="enrollbtn" class="btn btn-primary" (click)="enroll()">Matricular</button>
       </h5>
     </div>
