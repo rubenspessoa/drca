@@ -5,7 +5,7 @@
     <div class="row btn-group-lg">
       <div *ngFor="let department of departments" (click)="onSelect(department)" class="btn col-md-4" [class.selected]="department == selectedDepartment">
         <h4>
-          <a>{{department.name}}</a>
+          <a id="departmentId">{{department.name}}</a>
         </h4>
       </div>
     </div>
@@ -23,7 +23,7 @@
     <div class="row btn-group-lg">
       <div *ngFor="let secretariat of secretariats" class="btn col-md-6">
         <h4>
-          <a (click)="gotoSecretariat(selectedDepartment.name, secretariat.objectId)">{{secretariat.name}}</a>
+          <a id="secretariatId" (click)="gotoSecretariat(selectedDepartment.name, secretariat.objectId)">{{secretariat.name}}</a>
         </h4>
       </div>
     </div>
