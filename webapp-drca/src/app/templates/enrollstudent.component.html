@@ -20,7 +20,7 @@
       </ul>
     </div>
 
-    <div *ngIf="selectedDiscipline">
+    <div id="selectedDiscipline" *ngIf="selectedDiscipline">
       <hr>
       <h4 class="text-center">
         {{selectedDiscipline.name}}
@@ -35,7 +35,7 @@
 
       <h5 class="text-center">
         <p>{{enrollResult.content}}</p>
-        <button class="btn btn-primary" (click)="enroll()">Matricular</button>
+        <button id="enrollbtn" class="btn btn-primary" (click)="enroll()">Matricular</button>
       </h5>
     </div>
   </div>

@@ -187,7 +187,7 @@ public class Server {
     		if(obj instanceof Boolean) {
     			Boolean isAvailable = (Boolean) obj;
     			if(!isAvailable) {
-    				return "{\"error\":\"disciplina indisponível\"}";
+    				return "{\"error\":\"Disciplina indisponível.\"}";
     			}
     		}
     		
@@ -213,12 +213,12 @@ public class Server {
         					}
         					
         					if(!found) {
-        						return "{\"error\":\"pre-requisitos não atendidos\"}";
+        						return "{\"error\":\"Pré-requisitos não atendidos.\"}";
         					}
         				}
         			}
         			else {
-        				return "{\"error\":\"pre-requisitos não atendidos\"}";
+        				return "{\"error\":\"Pré-requisitos não atendidos.\"}";
         			}
     			}
     		}
@@ -235,7 +235,7 @@ public class Server {
     				Integer studentCredit = (Integer) obj;
     				
     				if(studentCredit < requiredCredit) {
-    					return "{\"error\":\"pre-requisitos não atendidos\"}";
+    					return "{\"error\":\"Pré-requisitos não atendidos.\"}";
     				}
     			}
     		}
@@ -250,15 +250,15 @@ public class Server {
     				if(obj instanceof Integer) {
     					Integer credit = (Integer) obj;
     					if(credit < 170) {
-    						return "{\"error\":\"pre-requisitos não atendidos\"}";
+    						return "{\"error\":\"Pré-requisitos não atendidos.\"}";
     					}
     				}
     				else {
-    					return "{\"error\":\"pre-requisitos não atendidos\"}";
+    					return "{\"error\":\"Pré-requisitos não atendidos.\"}";
     				}
     			}
     			else {
-    				return "{\"error\":\"secretaria invalida\"}";
+    				return "{\"error\":\"Secretaria inválida.\"}";
     			}
     		}
     		
@@ -269,12 +269,12 @@ public class Server {
 				while(i.hasNext()) {
     				String coursedClassId = (String) i.next();
     				if(coursedClassId.compareTo(classId) == 0) {
-    					return "{\"error\":\"materia previamente matriculada\"}";
+    					return "{\"error\":\"Aluno já está matriculado na disciplina.\"}";
     				}
 				}
 			}
 
-    		return "{\"result\":\"ok\"}";
+    		return "{\"result\":\"Aluno matriculado com sucesso.\"}";
     	}
     	catch(Exception e) {
     		return e.toString();
