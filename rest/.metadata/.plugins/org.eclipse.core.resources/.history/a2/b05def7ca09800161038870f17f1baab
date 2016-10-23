@@ -1,0 +1,97 @@
+package server;
+
+import static org.junit.Assert.*;
+
+import java.util.Iterator;
+
+import org.json.simple.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.boot.SpringApplication;
+
+public class ServerTest {
+	Server server;
+	String resultKey = "result";
+	
+	@Before
+	public void setUp() throws Exception {
+		this.server = new Server();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testFetchStudents() {
+		String resultString = this.server.fetchStudents();
+		JSONObject result = (JSONObject) JSONValue.parse(resultString);
+		JSONArray array = (JSONArray) result.get(resultKey);
+		
+
+		assertEquals(5, array.size());
+		
+		Iterator<JSONObject> i = array.iterator();
+		
+		while(i.hasNext()) {
+			JSONObject student = i.next();
+			
+			if((Long) student.get("registry") == 12398) {
+				assertEquals("Maria Antônia", student.get("name"));
+				assertEquals(new Long(0), student.get("mandatoryCredits"));
+				assertEquals(new Long(0), student.get("electiveCredit"));
+				assertEquals("TbD4sLMPBd", ((JSONObject) student.get("course")).get("objectId"));
+				assertEquals(0, ((JSONArray) student.get("coursedClasses")).size());
+			}
+			else if((Long) student.get("registry") == 9914918) {
+				assertEquals("João da Silva", student.get("name"));
+				assertEquals(new Long(0), student.get("mandatoryCredits"));
+				assertEquals(new Long(0), student.get("electiveCredit"));
+				assertEquals("0Y7xVqhuMU", ((JSONObject) student.get("course")).get("objectId"));
+				assertEquals(0, ((JSONArray) student.get("coursedClasses")).size());
+			}
+			else if((Long) student.get("registry") == 9915918) {
+				assertEquals("José Vasconcelos", student.get("name"));
+				assertEquals(new Long(0), student.get("mandatoryCredits"));
+				assertEquals(new Long(0), student.get("electiveCredit"));
+				assertEquals("rAXD7UBiUW", ((JSONObject) student.get("course")).get("objectId"));
+				assertEquals(0, ((JSONArray) student.get("coursedClasses")).size());
+			}
+			else if((Long) student.get("registry") == 9924812) {
+				assertEquals("Jurema Torres", student.get("name"));
+				assertEquals(new Long(100), student.get("mandatoryCredits"));
+				assertEquals(new Long(0), student.get("electiveCredit"));
+				assertEquals("5sBCpMQeAW", ((JSONObject) student.get("course")).get("objectId"));
+				assertEquals(0, ((JSONArray) student.get("coursedClasses")).size());
+				
+				Iterator<String> j = ((JSONArray) student.get("coursedClasses")).iterator();
+				while(j.hasNext()) {
+					String id = j.next();
+					if(id.compareTo("dQAAP7Wkx9") != 0 && id.compareTo("MWn0ZDbyit") != 0) {
+						fail("invalid id");
+					}
+				}
+			}
+			else if((Long) student.get("registry") == 98124812) {
+				assertEquals("Alex Carvalho", student.get("name"));
+				assertEquals(new Long(130), student.get("mandatoryCredits"));
+				assertEquals(new Long(50), student.get("electiveCredit"));
+				assertEquals("5sBCpMQeAW", ((JSONObject) student.get("course")).get("objectId"));
+				assertEquals(3, ((JSONArray) student.get("coursedClasses")).size());
+				
+				Iterator<String> j = ((JSONArray) student.get("coursedClasses")).iterator();
+				while(j.hasNext()) {
+					String id = j.next();
+					if(id.compareTo("dQAAP7Wkx9") != 0 && id.compareTo("yOqln8vNsA") != 0 && id.compareTo("SCWCADj6gM") != 0) {
+						fail("invalid id");
+					}
+				}
+			}
+			else {
+				fail("Invalid User");
+			}
+		}
+	}
+
+}

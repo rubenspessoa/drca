@@ -1,0 +1,48 @@
+package server;
+
+import static org.junit.Assert.*;
+
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.boot.SpringApplication;
+
+public class ServerTest {
+	Server server;
+	String resultKey = "result";
+	
+	@Before
+	public void setUp() throws Exception {
+		this.server = new Server();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testFetchStudents() {
+		String resultString = this.server.fetchStudents();
+		JSONObject result = (JSONObject) JSONValue.parse(resultString);
+		JSONArray array = (JSONArray) result.get(resultKey);
+		
+
+		assertEquals(5, array.size());
+		
+		Iterator<JSONObject> i = array.iterator();
+		
+		while(i.hasNext()) {
+			JSONObject student = i.next();
+			assertNotNull(student.get("name"));
+			assertEquals(true, student.get("name") instanceof String);
+			assertNotNull(student.get("registry"));
+			assertEquals(true, student.get("registry") instanceof Double);
+		}
+	}
+
+}

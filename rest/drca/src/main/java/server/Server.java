@@ -95,17 +95,6 @@ public class Server {
     }
 
 	@CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping("/fetchClassesByIds")
-    public String fetchClassesByIds(@RequestParam(value=idKey) String id) {
-    	try {
-    		return CloudQuery.callCloudCodeFunction("fetchClassesByIds", "{\"" + idKey + "\": \"" + id + "\"}");
-    	}
-    	catch(Exception e) {
-    		return e.toString();
-    	}
-    }
-
-	@CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping("/fetchClassesForDepartmentWithId")
     public String fetchClassesForDepartmentWithId(@RequestParam(value=idKey) String id) {
     	try {
@@ -190,7 +179,7 @@ public class Server {
     				return "{\"error\":\"Disciplina indisponível.\"}";
     			}
     		}
-    		
+    	
     		obj = clss.get("requiredClasses");
     		
     		if(obj instanceof JSONArray) {
@@ -223,16 +212,16 @@ public class Server {
     			}
     		}
     		
-    		obj = clss.get("credits");
+    		obj = clss.get("requiredCredit");
     		
-    		if(obj instanceof Integer) {
-    			Integer requiredCredit = (Integer) obj;
+    		if(obj instanceof Long) {
+    			Long requiredCredit = (Long) obj;
     			if(requiredCredit > 0) {
     				obj = student.get("mandatoryCredits");
-    				if(!(obj instanceof Integer)) {
-    					obj = new Integer(0);
+    				if(!(obj instanceof Long)) {
+    					obj = new Long(0);
     				}
-    				Integer studentCredit = (Integer) obj;
+    				Long studentCredit = (Long) obj;
     				
     				if(studentCredit < requiredCredit) {
     					return "{\"error\":\"Pré-requisitos não atendidos.\"}";
@@ -243,6 +232,7 @@ public class Server {
     		String secretaryId = (String) secretary.get(objectIdKey);
     		String classSecretaryId = (String) classSecretary.get(objectIdKey);
     		
+<<<<<<< HEAD
     		if(secretaryId.compareTo(classSecretaryId) != 0) {
     			String docSecretaryId = (String) docSecretary.get(objectIdKey);
     			if(secretaryId.compareTo(docSecretaryId) == 0) {
@@ -259,6 +249,18 @@ public class Server {
     			}
     			else {
     				return "{\"error\":\"Secretaria inválida.\"}";
+=======
+    		if(classSecretaryId.compareTo(secretaryId) != 0) {
+    			obj = student.get("mandatoryCredits");
+    			if(obj instanceof Long) {
+    				Long credit = (Long) obj;
+    				if(credit < 170) {
+    					return "{\"error\":\"pre-requisitos não atendidos\"}";
+    				}
+    			}
+    			else {
+    				return "{\"error\":\"pre-requisitos não atendidos\"}";
+>>>>>>> 7560be8a8559e73ff10fb9826c94f33ed763b072
     			}
     		}
     		
