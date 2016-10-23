@@ -1,0 +1,67 @@
+package server;
+
+import static org.junit.Assert.*;
+
+import java.util.Iterator;
+
+import org.json.simple.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.boot.SpringApplication;
+
+public class ServerTest {
+	Server server;
+	String resultKey = "result";
+	
+	@Before
+	public void setUp() throws Exception {
+		this.server = new Server();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testFetchStudents() {
+		String resultString = this.server.fetchStudents();
+		JSONObject result = (JSONObject) JSONValue.parse(resultString);
+		JSONArray array = (JSONArray) result.get(resultKey);
+		
+
+		assertEquals(5, array.size());
+		
+		Iterator<JSONObject> i = array.iterator();
+		
+		while(i.hasNext()) {
+			JSONObject student = i.next();
+			
+			if((Long) student.get("registry") == 12398) {
+				assertEquals("Maria Antônia", student.get("name"));
+				assertEquals(0, student.get("mandatoryCredits"));
+				assertEquals(0, student.get("electiveCredit"));
+				assertEquals("TbD4sLMPBd", ((JSONObject) student.get("course")).get("objectId"));
+				assertEquals(0, ((JSONArray) student.get("coursedClasses")).size());
+			}
+			else if((Long) student.get("registry") == 9914918) {
+				assertEquals("João da Silva", student.get("name"));
+				assertEquals(0, student.get("mandatoryCredits"));
+				assertEquals(0, student.get("electiveCredit"));
+				assertEquals("0Y7xVqhuMU", ((JSONObject) student.get("course")).get("objectId"));
+				assertEquals(0, ((JSONArray) student.get("coursedClasses")).size());
+			}
+			else if((Long) student.get("registry") == 9915918) {
+				assertEquals("José Vasconcelos", student.get("name"));
+				assertEquals(0, student.get("mandatoryCredits"));
+				assertEquals(0, student.get("electiveCredit"));
+				assertEquals("rAXD7UBiUW", ((JSONObject) student.get("course")).get("objectId"));
+				assertEquals(0, ((JSONArray) student.get("coursedClasses")).size());
+			}
+			else {
+				fail("Invalid User");
+			}
+		}
+	}
+
+}
