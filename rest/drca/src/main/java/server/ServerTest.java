@@ -8,7 +8,6 @@ import org.json.simple.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.boot.SpringApplication;
 
 public class ServerTest {
 	Server server;
